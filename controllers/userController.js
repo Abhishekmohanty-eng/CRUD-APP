@@ -275,6 +275,9 @@ const deleteUser = async function (req, res) {
   try {
       
       let userIdFromToken = req.userId
+
+
+      
       let userId = req.params.userId
       const findUserData = await userModel.findById(userId)
       const user = await userModel.findOne({ _id: userId })
@@ -284,6 +287,9 @@ const deleteUser = async function (req, res) {
       if (findUserData._id.toString() != userIdFromToken) {
         return res.status(403).send({ status: false, message: "You Are Not Authorized!!" })
     }
+
+
+
       if (!user) {
           return res.status(400).send({ status: false, message: `user not Found` })
       }
