@@ -275,9 +275,6 @@ const deleteUser = async function (req, res) {
   try {
       
       let userIdFromToken = req.userId
-
-
-      
       let userId = req.params.userId
       const findUserData = await userModel.findById(userId)
       const user = await userModel.findOne({ _id: userId })
